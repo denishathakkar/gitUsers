@@ -1,6 +1,6 @@
 import React ,{useState, useEffect} from 'react';
  import {View, Text, FlatList, Image} from 'react-native';
-import {getUserDetailData} from '../api/methods/UserData'
+import {getUserDetailData} from '../../api/methods/UserData'
 import DetailCell from './Components/DetailCell';
 import GistCell from './Components/GistCell';
 import RepoCell from './Components/RepoCell';
@@ -24,7 +24,6 @@ const UserDetail = (props) => {
     const fetchUsersDetailData = async() =>{
          var allDetail = await getUserDetailData(userUrl,reposUrl,gistUrl)
          var userDetail = allDetail.usersJson
-         console.log("users", allDetail.gistsJson)
          
          setUserDetail([userDetail])
          setRepoDetail(allDetail.reposJson)

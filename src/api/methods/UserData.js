@@ -12,7 +12,7 @@ export const getUserData = async () => {
 }
 
 export const getUserDetailData = async (api, repoapi, gistapi) => {
-  console.log("gisttt", gistapi)
+
   let users = await fetch(api);
   let repos = await fetch(repoapi)
   let gist = await fetch(api+ "/gists")
@@ -21,20 +21,18 @@ export const getUserDetailData = async (api, repoapi, gistapi) => {
   let reposJson = await repos.json();
   let gistsJson = await gist.json();
 
-  console.log("dataaa", users, repos, gist)
-
   return {usersJson, reposJson, gistsJson};
 
 }
 
 export const searchUserData = async (queryName) => {
-console.log("queryname", queryName)
+
   var encodedParameter = encodeURIComponent(queryName)
   var queryApi = ApiConstants.SEARCH_USER_API + encodedParameter
-  console.log("queryname", queryApi)
+
   let response = await fetch(queryApi);
   let json = await response.json();
-  console.log("query search", json)
+
   return json.items;
 
 }

@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { useState } from 'react';
  import {View, Text, FlatList} from 'react-native';
-import {getUserData, searchUserData} from '../api/methods/UserData';
+import {getUserData, searchUserData} from '../../api/methods/UserData';
 import UserCell from './Components/UserCell';
 import { Searchbar } from 'react-native-paper';
 
@@ -19,7 +19,6 @@ const Users = (props) => {
             if(users.message) {
                 alert(users.message)
             }
-            console.log("users search", users)
             setUsers(users)
         } else {
             var users = await getUserData()
@@ -32,7 +31,6 @@ const Users = (props) => {
 
     const fetchUsersData = async() =>{
          var users = await getUserData()
-         console.log("users", users)
          if(users.message) {
              alert(users.message)
          }
